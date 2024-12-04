@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    td
+    {
+        color:rgb(199, 199, 199) ;
+    }
+
+    body
+    {
+        background-color:rgb(43, 43, 43) ;
+    }
+
+    table
+   {
+        display:flex ;
+        justify-content: center;
+        align-items: center;
+        background-color: #343039;
+        border: 3px solid #252428;
+        border-style: ridge;
+        border-radius: 60px;
+        text-align: center;
+   }
+   .sc
+   {
+        margin: 6px;
+   }
+</style>
+<body>
+    <table>
+        <tr >
+            <td>
+                <h1>Для навігації у Web ви використовуєте:</h1> 
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <script language="JavaScript">
+                        document.write("<li>Ім'я програми: <b>"+navigator.appName+"</b>");
+                        document.write("<li>Версія: <b>"+navigator.appVersion+"</b>");
+                        document.write("<li>Агент користувача: <b>"+navigator.userAgent+"</b>");
+                        document.write("<li>Системна мова: <b>"+navigator.systemLanguage +"</b>");
+                        document.write("<li>Мова обрана користувачем до браузера <b>"+navigator.userLanguage +"</b>");
+                        document.write("<li>Платформа: <b>"+navigator.platform+"</b>");
+                    </script>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <section class="sc">
+                    <input type="button" value="Показати дату створення файла" onclick="showFileCreationDate()">
+            
+                    <script>
+                        function showFileCreationDate() 
+                            {
+                                alert("File creation date: " + getFileCreationDate());
+                            }
+            
+                        function getFileCreationDate() 
+                            {
+                                return "2023-01-01"; 
+                            }
+                    </script>
+                </section>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <section class="sc">
+                    <form>
+                        <label for="myName">ВВЕДІТЬ ВАШЕ ІМ’Я:</label>
+                        <input type="text" id="myName" name="myName">
+                        <input type="button" value="OK" onclick="displayGreeting()">
+                    </form>
+                    
+                    <div id="greetingContainer"></div>
+                    
+                    <script>
+                        function displayGreeting() 
+                        {
+                            var nameInput = document.getElementById('myName');
+                            var nameValue = nameInput.value;
+                            var greetingHTML = '<h3 style="text-align:center; color:#ff0000;">Добрийдень, ' + nameValue + '</h3>';
+                            document.getElementById('greetingContainer').innerHTML = greetingHTML;
+                        }
+                    </script>
+                </section>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <section class="sc">
+                    <input onclick="openGreetingWindow()" type="button" value="Викликаємо метод open"><br>
+
+                    <input onclick="closeGreetingWindow()" type="button" value="Зачинемо вікно"><br>
+
+                    <script>
+                    var pr1; 
+
+                        function openGreetingWindow() 
+                        {
+                            pr1 = window.open('index.html', 'pr1', 'width=1024, height=900');
+                        }
+
+                        function closeGreetingWindow() 
+                        {
+                            if (pr1 && !pr1.closed) 
+                            {
+                                pr1.close();
+                            }
+                        }
+                    </script>
+                </section class="sc">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <section class="sc">
+                    <input type="button" value="Перевіримо роботу метода alert" onclick="alert('!!ERROR!!');">
+                </section>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <section>
+                    <input onclick="top.im=prompt('Введіть Ваше ім’я');" type="button" value="Викличемо метод prompt"><br>
+                    <input onclick="alert(top.im);" type="button" value="Переглянемо введену інформацію"><br>
+                </section>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <section class="sc">
+                    <button onclick="showCurrentDate()">Поточний час</button>
+                    <script>
+                        function showCurrentDate() 
+                        {
+                            alert(new Date());
+                        }
+                    </script>                    
+                </section>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <section class="sc">
+                    <button onclick="showDayOfMonth()">День тижня сьогоднішньої дати</button>
+                    <script>
+                        function showDayOfMonth() 
+                        {
+                            var d = new Date();
+                            alert(d.getDate());
+                        }
+                    </script>                    
+                </section>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <section class="sc_1">
+                    <img src="img/im.gif" name='hare' width=220 height=160 border=1 alt="-_-">
+                    <input type="button" value="Збільшимо рисунок" 
+                    onclick="document.images['hare'].width=260;
+                    document.images['hare'].height=200;
+                    document.images['hare'].alt='Error';
+                    document.images['hare'].border=4;">
+                </section>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
